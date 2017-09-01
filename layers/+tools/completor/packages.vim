@@ -1,0 +1,1 @@
+MP 'maralla/completor.vim'

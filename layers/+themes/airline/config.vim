@@ -1,7 +1,8 @@
 scriptencoding=utf-8
 
 " vim-airline {
-    let g:airline_theme='violet'
+    "---------------alrLine Config--------------
+    let g:airline_theme='molokai'
     let g:Powerline_symbols='fancy'
     let g:airline#extensions#tabline#enabled=1
     let g:airline#extensions#tabline#buffer_idx_mode = 1

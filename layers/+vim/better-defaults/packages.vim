@@ -71,3 +71,5 @@ augroup END
 
 MP 'Xuyuanp/nerdtree-git-plugin',             { 'on': 'NERDTreeToggle' }
 MP 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
+
+MP 'gorodinskiy/vim-coloresque'

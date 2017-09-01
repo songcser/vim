@@ -26,3 +26,5 @@ augroup LOAD_YCM
     autocmd!
     autocmd InsertEnter * call s:invoke_ycm()
 augroup END
+
+"MP 'davidhalter/jedi-vim'

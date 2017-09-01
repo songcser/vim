@@ -1,3 +1,4 @@
+" let g:fzf_launcher = '/Users/henry/.space-vim/layers/+tools/fzf/fzf_MacVim.sh %s'
 if !g:spacevim_gui_running
     " fzf.vim {
     " Customize fzf colors to match your color scheme
@@ -24,9 +25,9 @@ if !g:spacevim_gui_running
 
     nnoremap <Leader>b? :Buffers<CR>
     nnoremap <Leader>w? :Windows<CR>
-    nnoremap <Leader>f? :Files<CR>
+    nnoremap <Leader>ff :Files<CR>
 
-    nnoremap <Leader>ff :Files ~<CR>
+    nnoremap <Leader>f? :Files ~<CR>
     " }
 
     " fzf-filemru {
@@ -34,4 +35,7 @@ if !g:spacevim_gui_running
     " }
 else
     nnoremap <Leader>? :nmap<CR>
+    nmap <silent> <Leader>ff <Plug>(CommandT)
+    nmap <silent> <Leader>bb <Plug>(CommandTBuffer)
+    nmap <silent> <Leader>j <Plug>(CommandTJump)
 endif

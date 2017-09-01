@@ -102,6 +102,7 @@ augroup END
     inoremap <F6> <ESC>:TagbarToggle<CR>
     nnoremap <Leader>tt :TagbarToggle<CR>
     let g:tagbar_sort = 0
+    let g:Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/5.8_1/bin/ctags'
 " }
 
 " asyncrun.vim {

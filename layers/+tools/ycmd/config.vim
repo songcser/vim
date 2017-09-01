@@ -5,13 +5,16 @@ scriptencoding utf-8
     let g:ycm_error_symbol='✖'
     let g:ycm_warning_symbol='⚠ '
     " ycm_path_to_python_interpreter is important!
+    let g:ycm_python_binary_path = 'python'
     let g:ycm_path_to_python_interpreter='python'
-    let g:ycm_min_num_of_chars_for_completion=2
+    let g:ycm_min_num_of_chars_for_completion=1
     let g:ycm_cache_omnifunc=0
     let g:ycm_seed_identifiers_with_syntax=1
     let g:ycm_complete_in_comments=1
     let g:ycm_complete_in_strings=1
     let g:ycm_collect_identifiers_from_comments_and_strings=0
+    let g:ycm_cache_omnifunc=0
+    let g:ycm_key_invoke_completion=''
     let g:ycm_semantic_triggers =  {
                 \   'c' : ['->', '.'],
                 \   'objc' : ['->', '.'],
@@ -37,7 +40,13 @@ scriptencoding utf-8
                 \   'csv' : 1,
                 \}
     " let g:ycm_key_invoke_completion='<M-;>'
-
+    "回车即选中当前项"
+    inoremap <expr> <CR>       pumvisible() ? '<C-y>' : '\<CR>'     
+    "上下左右键行为"
+    inoremap <expr> <Down>     pumvisible() ? '\<C-n>' : '\<Down>'
+    inoremap <expr> <Up>       pumvisible() ? '\<C-p>' : '\<Up>'
+    inoremap <expr> <PageDown> pumvisible() ? '\<PageDown>\<C-p>\<C-n>' : '\<PageDown>'
+    inoremap <expr> <PageUp>   pumvisible() ? '\<PageUp>\<C-p>\<C-n>' : '\<PageUp>'
 
     augroup SPACEVIM_YCM
 
@@ -66,4 +75,19 @@ scriptencoding utf-8
         autocmd FileType c,cpp
                     \   nnoremap <LocalLeader>gp :YcmCompleter GetParent<CR>
     augroup END
+" }
+
+" jedi {
+" autocmd FileType python setlocal completeopt-=preview
+" let g:pymode_rope = 0
+" let g:jedi#use_tabs_not_buffers = 1
+" let g:jedi#show_call_signatures = '1'
+" let g:jedi#goto_command = '<leader>e'
+" let g:jedi#goto_assignments_command = '<leader>f'
+" let g:jedi#goto_definitions_command = ''
+" let g:jedi#documentation_command = 'K'
+" let g:jedi#usages_command = '<leader>n'
+" let g:jedi#completions_command = '<C-c>'
+" let g:jedi#rename_command = '<leader>r'
+
 " }

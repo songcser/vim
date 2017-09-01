@@ -64,8 +64,8 @@ scriptencoding utf-8
 " nerdtree {
     let g:NERDTreeShowHidden=1
     let g:NERDTreeAutoDeleteBuffer=1
-    let g:NERDTreeDirArrowExpandable = '➤'
-    let g:NERDTreeDirArrowCollapsible = '▼'
+    let g:NERDTreeDirArrowExpandable = '▸'
+    let g:NERDTreeDirArrowCollapsible = '▾'
     let g:NERDTreeIgnore=[
                 \ '\.py[cd]$', '\~$', '\.swo$', '\.swp$',
                 \ '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$',
@@ -135,5 +135,60 @@ scriptencoding utf-8
     let g:NERDTreePatternMatchHighlightColor = {} " this line is needed to avoid error
     let g:NERDTreePatternMatchHighlightColor['*.py$'] = s:red " sets the color for files ending with _spec.rb
 " }
+
+" vim-nerdtree-highlight-file {
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+exec 'autocmd FileType nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+exec 'autocmd FileType nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+augroup nerdtree_autocmds
+    autocmd!
+
+    au VimEnter * call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#151515')
+    au VimEnter * call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
+    au VimEnter * call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
+    au VimEnter * call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
+    au VimEnter * call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
+    au VimEnter * call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
+    au VimEnter * call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
+    au VimEnter * call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
+    au VimEnter * call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
+    au VimEnter * call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
+    au VimEnter * call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
+    au VimEnter * call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
+    au VimEnter * call NERDTreeHighlightFile('rb', 'Red', 'none', '#ffa500', '#151515')
+    au VimEnter * call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff0000', '#151515')
+    au VimEnter * call NERDTreeHighlightFile('py', 'Magenta', 'none', '#ff00ff', '#151515')
+    au VimEnter * call NERDTreeHighlightFile('ts', 'Red', 'none', '#ffa5ff', '#151515')
+    au VimEnter * call NERDTreeHighlightFile('xml', 'green', 'none', '#ffaa00', '#151515')
+augroup END
+
+    " function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+    "  exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+    "  exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+    " endfunction
+    "
+    " call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#151515')
+    " call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
+    " call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
+    " call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
+    " call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
+    " call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
+    " call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
+    " call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
+    " call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
+    " call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
+    " call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
+    " call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
+    " call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
+    " call NERDTreeHighlightFile('py', 'Magenta', 'none', 'blue', '#151515')
+" }
+
+autocmd vimenter * NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+let NERDTreeIgnore = ['\.pyc$', '__pycache__', '*\~', '\.un\~$', '\.DS_Store', '\.git']
 
 execute 'source' fnamemodify(expand('<sfile>'), ':h') . '/keybindings.vim'

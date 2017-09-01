@@ -13,6 +13,7 @@ scriptencoding utf-8
     " Mnemonic _i_nteractive
     nnoremap <silent> <Leader>gi :Git add -p %<CR>
     nnoremap <silent> <Leader>gg :SignifyToggle<CR>
+
     "}
 
     " vim-gitgutter {
@@ -21,9 +22,11 @@ scriptencoding utf-8
     let g:gitgutter_sign_modified = '~'
     let g:gitgutter_sign_removed = '-'
 
-    let g:gitgutter_sign_removed_first_line = '^^'
-    let g:gitgutter_sign_modified_removed = 'ww'
-    let g:gitgutter_override_sign_column_highlight = 0
+    let g:gitgutter_sign_removed_first_line = '^'
+    let g:gitgutter_sign_modified_removed = '*'
+    let g:gitgutter_override_sign_column_highlight = 1
 
-    nnoremap <silent> <Leader>tg :GitGutterToggle<CR>
+    nnoremap <silent> <Leader>gt :GitGutterToggle<CR>
+    nnoremap <silent> <Leader>gh :GitGutterLineHighlightsToggle<CR>
+
 " }
