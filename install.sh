@@ -95,7 +95,7 @@ sync_repo() {
     then
         msg "\033[1;34m==>\033[0m Trying to clone $repo_name"
         mkdir -p "$repo_path"
-        git clone -b "$repo_branch" "$repo_uri" "$repo_path"
+        git clone -b "$repo_branch" "$repo_uri" "$repo_path" --depth=1
         ret="$?"
         success "Successfully cloned $repo_name."
     else
@@ -153,35 +153,37 @@ generate_dot_spacevim(){
         cat <<DOTSPACEVIM
 " You can enable the existing layers in space-vim and
 " exclude the partial plugins in a certain layer.
-" The command Layer and Exlcude are vaild in the function Layers().
+" The command Layer is vaild in the function Layers().
+" Use exclude option if you don't want the full Layer,
+" e.g., Layer 'better-defaults', { 'exclude': 'itchyny/vim-cursorword' }
 function! Layers()
 
-    " Default layers, recommended!
-    Layer 'fzf'
-    Layer 'unite'
-    Layer 'better-defaults'
+  " Default layers, recommended!
+  Layer 'fzf'
+  Layer 'unite'
+  Layer 'better-defaults'
 
 endfunction
 
 " Put your private plugins here.
 function! UserInit()
 
-    " Space has been set as the default leader key,
-    " if you want to change it, uncomment and set it here.
-    " let g:spacevim_leader = "<\Space>"
-    " let g:spacevim_localleader = ','
+  " Space has been set as the default leader key,
+  " if you want to change it, uncomment and set it here.
+  " let g:spacevim_leader = "<\Space>"
+  " let g:spacevim_localleader = ','
 
-    " Install private plugins
-    " Plug 'extr0py/oni'
+  " Install private plugins
+  " Plug 'extr0py/oni'
 
 endfunction
 
 " Put your costom configurations here, e.g., change the colorscheme.
 function! UserConfig()
 
-    " If you enable airline layer and have installed the powerline fonts, set it here.
-    " let g:airline_powerline_fonts=1
-    " color desert
+  " If you enable airline layer and have installed the powerline fonts, set it here.
+  " let g:airline_powerline_fonts=1
+  " color desert
 
 endfunction
 DOTSPACEVIM

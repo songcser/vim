@@ -219,6 +219,8 @@ function! UserConfig()
     " Close the current buffer
     map <leader>bd :Bclose<cr>
 
+    map <leader>x :wq<cr>
+
     " Close all the buffers
     map <leader>ba :1,1000 bd!<cr>
 
