@@ -7,6 +7,7 @@
 * [Install](#install)
 * [Key Bindings](#key-bindings)
 * [Related Projects](#related-projects)
+* [Install Font](#install-font)
 
 <!-- vim-markdown-toc -->
 
@@ -32,3 +33,10 @@ Key Binding                        | Mode   | Description
 - [vimfiler.vim](https://github.com/Shougo/vimfiler.vim)
 - [easytree.vim](https://github.com/troydm/easytree.vim)
 - [vim-filebeagle](https://github.com/jeetsukumaran/vim-filebeagle)
+
+## Install Font
+
+```
+brew tap caskroom/fonts
+brew cask install font-hack-nerd-font
+```

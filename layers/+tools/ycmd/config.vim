@@ -1,7 +1,6 @@
 scriptencoding utf-8
 
 " YouCompleteMe {
-=======
   let g:ycm_error_symbol='✖'
   let g:ycm_warning_symbol='⚠ '
   let g:ycm_cache_omnifunc=0

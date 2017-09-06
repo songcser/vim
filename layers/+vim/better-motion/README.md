@@ -30,4 +30,4 @@ Key Binding          | Mode   | Description
 <kbd>SPC SPC s</kbd> | Normal | 快速字符搜索 (双向)
 <kbd>SPC SPC f</kbd> | Normal | 快速字符搜索 (向前)
 <kbd>SPC SPC j</kbd> | Normal | 快速行间移动 (向下)
-<kbd>SPC SPC k</kbd> | Normal | 快速行间移动 (向上)
+<kbd>SPC SPC k</kbd> | Normal | 快速行间移动 (向上

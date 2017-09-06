@@ -29,3 +29,9 @@ Key Binding        | Mode   | Description
 <kbd>SPC f f</kbd> | Normal | search files in home directory
 
 press <kbd>\<esc></kbd>, <kbd>Ctrl c</kbd> or <kbd>Ctrl [</kbd> to exit.
+
+
+``` sh
+# Use LeaderF
+sh $HOME/.vim/plugged/LeaderF/install.sh
+```

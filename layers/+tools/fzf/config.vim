@@ -1,7 +1,7 @@
 if g:spacevim_gui
   " LeaderF {
-  nnoremap <Leader>ff :LeaderfFile ~<CR>
-  nnoremap <Leader>f? :LeaderfFile<CR>
+  nnoremap <Leader>f? :LeaderfFile ~<CR>
+  nnoremap <Leader>ff :LeaderfFile<CR>
   nnoremap <Leader>fr :LeaderfMru<CR>
   nnoremap <Leader>fl :LeaderfLine<CR>
   nnoremap <Leader>fL :LeaderfLineAll<CR>

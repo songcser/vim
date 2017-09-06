@@ -22,3 +22,7 @@ To use this configuration layer, add it to your `~/.spacevim`.
 ### Dependencies
 
 To make syntax checking work, you need to install some external tools beforehand, e.g., `flake8` for the Python language.
+
+```
+pip install flake8
+```

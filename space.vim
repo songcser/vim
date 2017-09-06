@@ -6,7 +6,10 @@ function! Layers()
     " Default layers, recommended!
     Layer 'fzf'
     Layer 'unite'
+    Layer 'spacevim'
     Layer 'better-defaults'
+    Layer 'better-motion'
+    Layer 'emoji'
     Layer 'python'
     Layer 'tmux'
     " Layer 'ycmd'
@@ -22,6 +25,10 @@ function! Layers()
     Layer 'translater'
     Layer 'completor'
     Layer 'text-align'
+    Layer 'file-manager'
+    Layer 'ctrlp'
+    "Layer 'auto-completion'
+    Layer 'docker'
 
 endfunction
 
@@ -44,6 +51,12 @@ endfunction
 
 " Put your costom configurations here, e.g., change the colorscheme.
 function! UserConfig()
+
+    inoremap ' ''<ESC>i
+    inoremap " ""<ESC>i
+    inoremap ( ()<ESC>i
+    inoremap [ []<ESC>i
+    inoremap { {<CR>}<ESC>O
 
     " If you enable airline layer and have installed the powerline fonts, set it here.
     let g:airline_powerline_fonts=1
@@ -153,7 +166,9 @@ function! UserConfig()
     set ffs=unix,dos,mac
 
     " set guifont=Monaco:h12
-    set guifont=Source\ Code\ Pro\ for\ Powerline:h14
+    " set guifont=Source\ Code\ Pro\ for\ Powerline:h14
+    set guifont=SauceCodePro\ Nerd\ Font:h14
+    " set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline\ Nerd\ Font\ Complete:h14
 
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     " => Files, backups and undo
@@ -431,4 +446,15 @@ function! UserConfig()
     set termguicolors
     " If you use vim inside tmux, see https://github.com/vim/vim/issues/993
     " set Vim-specific sequences for RGB colors
+
+    "设置跳出自动补全的括号
+  func SkipPair()  
+    if getline('.')[col('.') - 1] == ')' || getline('.')[col('.') - 1] == ']' || getline('.')[col('.') - 1] == '"' || getline('.')[col('.') - 1] == "'" || getline('.')[col('.') - 1] == '}'  
+      return "\<ESC>la"  
+    else  
+      return "\t"  
+    endif  
+  endfunc  
+  " 将tab键绑定为跳出括号  
+  " "inoremap <TAB> <c-r>=SkipPair()<CR>
 endfunction
