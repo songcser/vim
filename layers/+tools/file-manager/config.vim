@@ -49,7 +49,9 @@ scriptencoding utf-8
   "let g:NERDTreeLimitedSyntax = 1
 
   autocmd FileType nerdtree setlocal nolist
-  let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
+  let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+  let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+  let g:NERDTreeDirArrows=0
 
   " you can add these colors to your .vimrc to help customizing
   let s:brown = '905532'

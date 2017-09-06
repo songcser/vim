@@ -1,6 +1,6 @@
 " ctrlp.vim {
   let g:ctrlp_working_path_mode = 'ra'	" search for nearest ancestor like .git, .hg, and the directory of the current file
-  let g:ctrlp_match_window_bottom = 0		" show the match window at the top of the screen
+  let g:ctrlp_match_window_bottom = 1		" show the match window at the top of the screen
   let g:ctrlp_by_filename = 1
   let g:ctrlp_max_height = 10				" maxiumum height of match window
   let g:ctrlp_switch_buffer = 'et'		" jump to a file if it's open already
